@@ -16,7 +16,7 @@ export const ripple = function ($rippleElem) {
 
     const /** {NodeElement} */ $ripple = document.createElement("div");
     $ripple.classList.add("ripple");
-    this.appendChild($ripple); // this : the parent element 'Button'
+    this.appendChild($ripple); // this : the parent element
 
     const removeRipple = () => {
       $ripple.animate(
