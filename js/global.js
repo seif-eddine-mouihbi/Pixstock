@@ -10,6 +10,7 @@
  */
 
 import { ripple } from "./utils/ripple.js";
+import { addEventOnElements } from "./utils/event.js";
 
 /**
  * Header on-scroll state
@@ -29,6 +30,19 @@ const /** {NodeElement} */ $rippleElems =
     document.querySelectorAll("[data-ripple]");
 
 $rippleElems.forEach(($rippleElem) => ripple($rippleElem));
+
+/**
+ * Navbar toggle for mobile screen
+ */
+
+const /** {NodeList} */ $navTogglers = document.querySelectorAll('[data-nav-toggler]')
+const /** {NodeElement} */ $navbar = document.querySelector('[data-navigation]')
+const /** {NodeElement} */ $overlay = document.querySelector('[data-overlay]')
+
+addEventOnElements($navTogglers, 'click', function(){
+  $navbar.classList.toggle('show')
+  $overlay.classList.toggle('active')
+})
 
 /**
  * Filter functionality

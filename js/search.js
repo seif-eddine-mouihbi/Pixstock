@@ -76,7 +76,9 @@ $searchBtn.addEventListener("click", function () {
  * Submit search when press on "Enter" key
  */
 
-// ========= TODO ===============
+$searchField.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && $searchField.value.trim()) $searchBtn.click();
+});
 
 /**
  * Search history
