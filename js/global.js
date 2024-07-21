@@ -35,17 +35,32 @@ $rippleElems.forEach(($rippleElem) => ripple($rippleElem));
  * Navbar toggle for mobile screen
  */
 
-const /** {NodeList} */ $navTogglers = document.querySelectorAll('[data-nav-toggler]')
-const /** {NodeElement} */ $navbar = document.querySelector('[data-navigation]')
-const /** {NodeElement} */ $overlay = document.querySelector('[data-overlay]')
+const /** {NodeList} */ $navTogglers =
+    document.querySelectorAll("[data-nav-toggler]");
+const /** {NodeElement} */ $navbar =
+    document.querySelector("[data-navigation]");
+const /** {NodeElement} */ $overlay = document.querySelector("[data-overlay]");
 
-addEventOnElements($navTogglers, 'click', function(){
-  $navbar.classList.toggle('show')
-  $overlay.classList.toggle('active')
-})
+addEventOnElements($navTogglers, "click", function () {
+  $navbar.classList.toggle("show");
+  $overlay.classList.toggle("active");
+});
 
 /**
  * Filter functionality
  */
 
 window.filterObj = {};
+
+/**
+ * Initial favorite object in local storage
+ */
+
+if (!window.localStorage.getItem("favorite")) {
+  const /** Object */ favoriteObj = {
+      photos: {},
+      videos: {},
+    };
+
+  window.localStorage.setItem("favorite", JSON.stringify(favoriteObj));
+}
