@@ -280,6 +280,7 @@
     <main class="main">
       <article>
         <!-- #BANNER -->
+
         <section class="banner" aria-label="Banner">
           <div class="banner-card primary">
             <div class="card-content">
@@ -565,6 +566,7 @@
         </section>
 
         <!-- #FEATURED PHOTOS -->
+
         <section
           class="section featured-photo"
           aria-labelledby="featured-label"
@@ -589,6 +591,7 @@
         </section>
 
         <!-- #POPULAR VIDEOS -->
+
         <section
           class="section popular-video"
           aria-labelledby="popular-video-label"
@@ -615,8 +618,58 @@
 
         <!-- #POPULAR COLLECTION -->
 
-        <!-- ========== TODO ============= -->
+        <section class="section collection" aria-labelledby="collections-label">
+          <div class="container">
+            <h2 class="title-large section-title" id="collections-label">
+              Featured collections
+            </h2>
+            <div class="collection-grid" data-collection-grid></div>
+            <a
+              href="./pages/collections/collection.html"
+              class="btn btn-primary"
+              data-ripple
+            >
+              <span class="label-large text">More collections</span>
+              <div class="state-layer"></div>
+            </a>
+          </div>
+        </section>
       </article>
     </main>
+
+    <!-- #FOOTER -->
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-card">
+          <div class="col">
+            <a href="/" class="logo">Pixstock</a>
+            <p class="text body-small">
+              Pixstock is a stock photo app developed by
+              <span class="color-primary">Seif Eddine Mouihbi</span> and all
+              Photos and Videos provided by
+              <a href="https://pexels.com" target="_blank" class="color-primary"
+                >Pexels</a
+              >.
+            </p>
+          </div>
+
+          <div class="col">
+            <p class="title label-medium">Follow us on</p>
+            <div class="social-list">
+              <a href="#" class="label-small color-primary" target="_blank"
+                >Youtube</a
+              >
+              <a href="#" class="label-small color-primary" target="_blank"
+                >GitHub</a
+              >
+              <a href="#" class="label-small color-primary" target="_blank"
+                >Twitter</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

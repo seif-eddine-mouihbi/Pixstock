@@ -15,7 +15,7 @@ import { favorite } from "./favorite.js";
 /**
  * Create photo card
  * @param {Object} photo Photo object
- * @returns Photo card
+ * @returns {Node} Photo card
  */
 
 export const photoCard = (photo) => {

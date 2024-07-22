@@ -12,7 +12,7 @@
 import { urlEncode } from "./utils/urlEncode.js";
 
 // ! [Do not share API_KEY in public]
-const /** {String} */ API_KEY = "";
+const /** {String} */ API_KEY = "XEX0gjdDIjQgFDdgxrMhbbZGdBkK3fSs0m1Rdehtj5eBxFyVeDsoQAGA";
 
 const /** {Function} */ headers = new Headers();
 headers.append("Authorization", API_KEY);

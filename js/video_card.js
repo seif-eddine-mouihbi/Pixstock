@@ -13,6 +13,12 @@ import { ripple } from "./utils/ripple.js";
 import { favorite } from "./favorite.js";
 import { hoverOnPlay } from "./utils/hoverOnPlay.js";
 
+/**
+ * Create video card
+ * @param {Object} video Video object
+ * @returns {Node} Video card
+ */
+
 export const videoCard = (video) => {
   const /** {String} */ root = window.location.origin;
 
