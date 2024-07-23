@@ -11,6 +11,7 @@
 
 import { ripple } from "./utils/ripple.js";
 import { addEventOnElements } from "./utils/event.js";
+import { urlDecode } from "./utils/urlDecode.js";
 
 /**
  * Header on-scroll state
@@ -51,6 +52,18 @@ addEventOnElements($navTogglers, "click", function () {
  */
 
 window.filterObj = {};
+
+
+/**
+ * Show all filtered options after reload
+ */
+
+if(window.location.search.slice(1)){
+  const /** {Object} */ search = urlDecode(window.location.search.slice(1))
+
+  // ========= TODO ==========
+  
+}
 
 /**
  * Initial favorite object in local storage
