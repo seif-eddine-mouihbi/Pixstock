@@ -10,7 +10,7 @@
  */
 
 import { client } from "../../js/api_configure.js";
-import { photoCard } from "../../js/photo_card.js";
+import { videoCard } from "../../js/video_card.js";
 import { gridInit, updateGrid } from "../../js/utils/masonry_grid.js";
 import { updateUrl } from "../../js/utils/updateUrl.js";
 import { urlDecode } from "../../js/utils/urlDecode.js";
@@ -33,28 +33,28 @@ const /** {NodeList} */ $filterWrappers =
 $filterWrappers.forEach(($filterWrapper) => {
   filter($filterWrapper, window.filterObj, (newObj) => {
     window.filterObj = newObj;
-    updateUrl(newObj, "photos");
+    updateUrl(newObj, "videos");
   });
 });
 
 /**
- * Render curated or searched photos
- * If searched somthing then render searched photos
- * Otherwise render curated photos
+ * Render popular or searched videos
+ * If searched somthing then render searched videos
+ * Otherwise render popular videos
  */
 
-const /** {NodeElement} */ $photoGrid =
-    document.querySelector("[data-photo-grid]");
+const /** {NodeElement} */ $videoGrid =
+    document.querySelector("[data-video-grid]");
 const /** {NodeElement} */ $title = document.querySelector("[data-title]");
-const /** {Object} */ photoGrid = gridInit($photoGrid);
+const /** {Object} */ videoGrid = gridInit($videoGrid);
 const /** {Number} */ perPage = 30;
 let /** {Number} */ currentPage = 1;
 let /** {Number} */ totalPage = 0;
 const /** {String} */ searchUrl = window.location.search.slice(1);
 let /** {Object} */ searchObj = searchUrl && urlDecode(searchUrl);
 const /** {String} */ title = searchObj
-    ? `${searchObj.query} photos`
-    : "Curated photos";
+    ? `${searchObj.query} videos`
+    : "Popular videos";
 
 $title.textContent = title;
 document.title = title;
@@ -63,14 +63,14 @@ document.title = title;
  * Render all photos
  * @param {Number} currentPage Current page number
  */
-const renderPhotos = function (currentPage) {
-  client.photos[searchObj ? "search" : "curated"](
+const renderVideos = function (currentPage) {
+  client.videos[searchObj ? "search" : "popular"](
     { ...searchObj, per_page: perPage, page: currentPage },
     (data) => {
       totalPage = Math.ceil(data.total_results / perPage);
-      data.photos.forEach((photo) => {
-        const /** {NodeElement} */ $photoCard = photoCard(photo);
-        updateGrid($photoCard, photoGrid.columnsHeight, photoGrid.$columns);
+      data.videos.forEach((video) => {
+        const /** {NodeElement} */ $videoCard = videoCard(video);
+        updateGrid($videoCard, videoGrid.columnsHeight, videoGrid.$columns);
       });
 
       // when photo loaded
@@ -82,7 +82,7 @@ const renderPhotos = function (currentPage) {
   );
 };
 
-renderPhotos(currentPage);
+renderVideos(currentPage);
 
 /**
  * load more
@@ -98,7 +98,7 @@ window.addEventListener("scroll", function () {
     isLoaded
   ) {
     currentPage++;
-    renderPhotos(currentPage);
+    renderVideos(currentPage);
     isLoaded = false;
   }
 });
