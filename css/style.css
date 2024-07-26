@@ -296,7 +296,6 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  height: 300vh;
   transition: opacity var(--motion-duration-medium-2)
     var(--motion-easing-linear);
   opacity: 0;
@@ -719,7 +718,7 @@ button:disabled {
  * Split btn
  */
 
- .split-btn{
+.split-btn {
   background-color: var(--primary);
   color: var(--on-primary);
   display: flex;
@@ -727,29 +726,29 @@ button:disabled {
   height: 40px;
   border-radius: var(--radius-full);
   overflow: hidden;
- }
+}
 
- .split-btn .label{
+.split-btn .label {
   --state-layer-bg: var(--on-primary);
   padding-inline: 16px;
   height: inherit;
   display: grid;
   place-items: center;
   border-inline-end: 1px solid var(--outline-variant);
- }
+}
 
- .split-btn .trailing-icon{
+.split-btn .trailing-icon {
   --state-layer-btn: var(--on-primary);
   color: inherit;
   height: inherit;
   width: 40px;
   display: grid;
   place-items: center;
- }
+}
 
- .split-btn .material-symbols-outlined{
+.split-btn .material-symbols-outlined {
   font-size: 1.8rem;
- }
+}
 
 /**
  * Search view
@@ -1259,7 +1258,7 @@ button:disabled {
 }
 
 .banner-card {
-  --gardient-direction: 180deg;
+  --gradient-direction: 180deg;
   --primary-hsl: 178, 89%, 70%;
   --secondary-hsl: 32, 100%, 85%;
   --tertiary-hsl: 3, 100%, 92%;
@@ -1306,7 +1305,7 @@ button:disabled {
   gap: 12px;
   padding: 24px;
   background-image: linear-gradient(
-    var(--gardient-direction),
+    var(--gradient-direction),
     hsla(var(--gradient-hsl), 0) 0%,
     hsla(var(--gradient-hsl), 0.36) 24%,
     hsla(var(--gradient-hsl), 0.64) 48%,
@@ -1458,42 +1457,42 @@ button:disabled {
   #PHOTO DETAIL PAGE
 \*-----------------------------------*/
 
-.detail :is(.main, .footer){
+.detail :is(.main, .footer) {
   margin-inline-start: 0;
 }
 
-.detail .top-app-bar .icon-btn{
+.detail .top-app-bar .icon-btn {
   display: grid;
 }
 
-.detail .top-app-bar .logo{
+.detail .top-app-bar .logo {
   display: block;
 }
 
-.detail .top-app-bar{
+.detail .top-app-bar {
   left: 0;
   width: 100%;
   gap: 4px;
 }
 
-.detail .menu-wrapper{
+.detail .menu-wrapper {
   margin-inline-start: auto;
 }
 
-.detail .menu-wrapper .menu{
+.detail .menu-wrapper .menu {
   transform-origin: top right;
   left: auto;
   right: 0;
 }
 
-.detail-wrapper{
+.detail-wrapper {
   height: 588px;
   display: grid;
   grid-template-rows: 1fr max-content;
   place-items: center;
 }
 
-.detail-banner{
+.detail-banner {
   max-width: 100%;
   max-height: 100%;
   margin-inline: auto;
@@ -1502,22 +1501,372 @@ button:disabled {
   margin-block-end: 8px;
 }
 
-.detail-wrapper .title-small{
+.detail-wrapper .title-small {
   text-align: center;
 }
 
-.detail-wrapper .color-primary{
+.detail-wrapper .color-primary {
   display: inline-block;
 }
 
-.detail .title-large{
+.detail .title-large {
   margin-block: 32px 16px;
 }
 
 /*-----------------------------------*\
   #FAVORITE PAGE
 \*-----------------------------------*/
+.favorite-page .btn-group {
+  margin-block: 16px;
+}
+
+.favorite-page .btn-group .btn-segment {
+  flex: 1 1 25%;
+}
 
 /*-----------------------------------*\
   #MEDIA QUERIES
 \*-----------------------------------*/
+
+/**
+ * responsive for large than 600px screen
+ */
+
+@media (min-width: 600px) {
+  /**
+   * Banner
+   */
+
+  .banner-card {
+    --gradient-direction: 270deg;
+  }
+
+  .banner-card .card-content {
+    align-content: center;
+  }
+
+  .banner-card .card-grid {
+    left: 32%;
+    bottom: -16px;
+  }
+}
+
+/**
+ * responsive for large than 900px screen
+ */
+
+@media (min-width: 900px) {
+  /**
+   * Typoghraphy
+   */
+
+  .headline-medium {
+    font-size: var(--fs-display-small);
+    font-weight: var(--weight-regular);
+    line-height: 44px;
+  }
+
+  .title-large {
+    font-size: var(--fs-headline-small);
+    font-weight: var(--weight-regular);
+    line-height: 32px;
+  }
+
+  /**
+   * Components
+   */
+
+  /**
+   * Top app bar
+   */
+
+  .top-app-bar .logo {
+    margin-inline-end: 0;
+  }
+
+  .top-app-bar .search-open {
+    display: none;
+  }
+
+  /**
+   * search
+   */
+
+  .search-view {
+    all: unset;
+    align-self: flex-start;
+    margin-block-start: 8px;
+    margin-inline: auto;
+    max-width: 560px;
+    width: 100%;
+    background-color: var(--surface-container-high);
+    border-radius: var(--radius-extra-large);
+    overflow: hidden;
+  }
+
+  .search-view:focus-within {
+    box-shadow: var(--elevation-2);
+  }
+
+  .search-bar {
+    height: 48px;
+  }
+
+  .search-view:not(:focus-within) .search-bar {
+    border: none;
+    --state-layer-bg: var(--on-surface);
+  }
+
+  .search-bar .icon-btn:first-child,
+  .search-view:not(:focus-within) :where(.icon-btn, .search-view-content) {
+    display: none;
+  }
+
+  .input-wrapper .leading-icon {
+    display: block;
+  }
+
+  .search-bar .input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-inline-start: 16px;
+  }
+
+  /**
+   * Card
+   */
+
+  .card .card-content {
+    opacity: 0;
+    transition: opacity var(--motion-duration-short-2)
+      var(--motion-easing-linear);
+  }
+
+  .card:where(:hover, :focus-visible) .card-content {
+    opacity: 1;
+  }
+
+  /**
+   * Reused style
+   */
+
+  .container {
+    padding-inline: 24px;
+  }
+
+  .section {
+    margin-block-end: 36px;
+  }
+
+  .section-title {
+    margin-block-end: 20px;
+  }
+
+  .media-grid {
+    --column-count: 3;
+    --column-gap: 12px;
+  }
+
+  .collection-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
+  }
+
+  /**
+   * Banner
+   */
+
+  .banner-card .card-content {
+    padding: 32px;
+  }
+
+  .banner-card .card-text {
+    display: block;
+    max-width: 40%;
+  }
+
+  /**
+   * Collection
+   */
+
+  .collection .btn {
+    margin-block: 24px;
+  }
+
+  /**
+   * Footer
+   */
+
+  .footer-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    place-items: center;
+    align-items: flex-end;
+  }
+
+
+  .footer-card .text {
+    margin-block-end: 4px;
+  }
+}
+
+/**
+ * responsive for large than 1240px screen
+ */
+
+@media (min-width: 1240px) {
+  /** 
+   * Typography
+   */
+
+  .headline-medium {
+    font-size: var(--fs-display-large);
+    font-weight: var(--weight-regular);
+    line-height: 64px;
+  }
+
+  .title-large {
+    font-size: var(--fs-headline-medium);
+    font-weight: var(--weight-regular);
+    line-height: 36px;
+  }
+
+  /**
+   * Reused style
+   */
+
+  .overlay {
+    display: none;
+  }
+
+  /**
+   * Component
+   */
+
+  /**
+   * Top app bar
+   */
+
+  .top-app-bar {
+    left: 360px;
+    width: auto;
+    right: 0;
+  }
+
+  .top-app-bar,
+  .top-app-bar.active {
+    background-color: var(--background);
+  }
+
+  .top-app-bar :where(.icon-btn:first-child, .logo) {
+    display: none;
+  }
+
+  /**
+   * search
+   */
+
+  .search-view {
+    max-width: 720px;
+  }
+
+  /**
+   * Navigation
+   */
+
+  .navigation {
+    --navigation-drawer-width: 360px;
+    visibility: visible;
+    width: var(--navigation-drawer-width);
+    border-radius: 0;
+  }
+
+  .navigation :where(.navigation-header, .drawer-list) {
+    opacity: 1;
+  }
+
+  .navigation-header {
+    height: 64px;
+    padding-inline: 28px;
+  }
+
+  .navigation-header .icon-btn {
+    display: none;
+  }
+
+  /**
+   * Reused style
+   */
+
+  .main,
+  .footer {
+    margin-inline-start: 360px;
+  }
+
+  .container {
+    max-width: 1128px;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .media-grid {
+    --column-gap: 16px;
+  }
+
+  .collection-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .section-title {
+    margin-block-end: 24px;
+  }
+
+  /**
+   * Banner
+   */
+
+  .banner-card {
+    height: 420px;
+  }
+
+  .banner-card .card-content {
+    padding: 48px;
+  }
+
+  /**
+   * Photo detail page
+   */
+
+  .detail-wrapper {
+    height: 788px;
+  }
+
+  .detail-banner {
+    max-height: 760px;
+  }
+
+  .detail .title-large {
+    margin-block-start: 40px;
+  }
+}
+
+/**
+ * responsive for large than 1400px screen
+ */
+
+@media (min-width: 1400px) {
+  /**
+   * Banner
+   */
+
+  .banner-card {
+    height: 560px;
+  }
+
+  .banner-card .card-content {
+    padding: 84px;
+  }
+}
